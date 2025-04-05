@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:latest
+    container_name: chorvo-db
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: chorvo
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - chorvo-net
+
+  chorvo:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: chorvo-backend-container
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    depends_on:
+      - db
+    networks:
+      - chorvo-net
+
+volumes:
+  pgdata:
+
+networks:
+  chorvo-net:
