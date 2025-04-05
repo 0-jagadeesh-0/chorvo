@@ -49,6 +49,8 @@ chorvo/
 │ │ └── repositories/ # DB interaction logic
 │ ├── router/ # Router setup
 │ ├── .env
+│ ├── docker-compose.yml # docker-compose
+│ ├── Dockerfile # chorvo server image
 │ ├── go.mod
 │ └── go.sum
 └── README.md
