@@ -36,7 +36,7 @@ chorvo/
 │ ├── cmd/ # App entrypoint (main.go)
 │ ├── config/ # Configuration loading
 │ ├── database/ # DB connection setup
-| ├── docs/ # API docs (Swagger)
+│ ├── docs/ # API docs (Swagger)
 │ ├── internal/
 │ │ ├── api/v1/
 │ │ │ ├── handlers/ # Handlers for versioned APIs
