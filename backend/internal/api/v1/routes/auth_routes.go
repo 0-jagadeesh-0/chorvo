@@ -5,11 +5,14 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func RegisterAuthRoutes(router *gin.RouterGroup) {
-
-	
-	authGroup := router.Group("/auth")
-
-	authGroup.POST("/signup", handlers.SignUpHandler)
-
+func SetupAuthRoutes(router *gin.Engine, authHandler *handlers.AuthHandler) {
+	auth := router.Group("/api/v1/auth")
+	{
+		auth.POST("/register", authHandler.Register)
+		auth.POST("/login", authHandler.Login)
+		auth.POST("/verify-email", authHandler.VerifyEmail)
+		auth.POST("/resend-verification", authHandler.ResendVerificationCode)
+		auth.POST("/forgot-password", authHandler.RequestPasswordReset)
+		auth.POST("/reset-password", authHandler.ResetPassword)
+	}
 }
