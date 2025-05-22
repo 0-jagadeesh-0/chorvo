@@ -32,26 +32,37 @@
 
 ```bash
 chorvo/
-├── backend/
-│ ├── cmd/ # App entrypoint (main.go)
-│ ├── config/ # Configuration loading
-│ ├── database/ # DB connection setup
-│ ├── docs/ # API docs (Swagger)
-│ ├── internal/
-│ │ ├── api/v1/
-│ │ │ ├── handlers/ # Handlers for versioned APIs
-│ │ │ ├── routes/ # Routes of the APIs
-│ │ │ └── services/ # Business logic
-│ │ ├── models/
-│ │ │ ├── entities/ # DB models
-│ │ │ ├── requests/ # Request body structs
-│ │ │ └── responses/ # Response body structs
-│ │ └── repositories/ # DB interaction logic
-│ ├── router/ # Router setup
-│ ├── .env
-│ ├── docker-compose.yml # docker-compose
-│ ├── Dockerfile # chorvo server image
-│ ├── go.mod
-│ └── go.sum
-└── README.md
+├── server/                    # Backend application root
+│   ├── cmd/
+│   │   └── server/            # Application entry points
+│   │       └── main.go        # Main application entry point
+│   │
+│   ├── config/                # Configuration management
+│   │   └── database.go        # Database configuration
+│   │
+│   ├── internal/              # Internal packages
+│   │   ├── api/
+│   │   │   └── v1/           # API version 1
+│   │   │       ├── handlers/  # HTTP request handlers
+│   │   │       ├── middleware/# HTTP middleware
+│   │   │       ├── routes/    # Route definitions
+│   │   │       ├── services/  # Business logic
+│   │   │       └── utils/     # Utility functions
+│   │   │
+│   │   ├── domain/           # Domain layer
+│   │   │   └── models/       # Domain models
+│   │   │
+│   │   └── repositories/     # Data access layer
+│   │
+│   ├── api/                  # API documentation
+│   │   └── openapi.yaml      # OpenAPI/Swagger specification
+│   │
+│   ├── .env                  # Environment variables
+│   ├── .gitignore           # Git ignore rules
+│   ├── docker-compose.yml    # Docker compose configuration
+│   ├── Dockerfile           # Docker build instructions
+│   ├── go.mod               # Go module definition
+│   └── go.sum               # Go module checksums
+│
+└── README.md                # Project documentation
 ```
