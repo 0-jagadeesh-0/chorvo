@@ -20,7 +20,7 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    container_name: chorvo-backend-container
+    container_name: chorvo-server-container
     ports:
       - "8080:8080"
     env_file:
